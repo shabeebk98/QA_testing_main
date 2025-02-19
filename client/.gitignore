@@ -1,0 +1,48 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# Python dependencies
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# Logs & Debugging
+logs/
+*.log
+debug.log
+
+# Editor & System Files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+*.sublime-workspace
+
+# Git Large Files (LFS)
+*.psd
+*.zip
+*.mp4
+*.mov
+
+# Build & Generated Files
+dist/
+build/
+coverage/
+*.out
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+config.json
+
+
