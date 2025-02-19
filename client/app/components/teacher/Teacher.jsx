@@ -11,11 +11,14 @@ import {
   LogOut,
   Settings,
   Plus,
+  LiaQuestionSolid,
   X,
+  FileQuestion,
 } from "lucide-react";
 import { useAuth } from "@/app/context/AuthContext";
 import { useRouter } from "next/navigation";
 import GenerateQuestion from "../questiongeneration/GenerateQuestion";
+import QuestionList from "./QuestionList";
 
 // Mock data for dashboard
 const teacherData = {
@@ -227,9 +230,28 @@ const TeacherDashboard = () => {
       );
     }
 
+    if (activeSection === "questions") {
+      return (
+        <div className="space-y-6">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-3xl font-bold text-gray-800 hidden">Questions</h1>
+            <button
+              onClick={() => setShowQuestionModal(true)}
+              className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              <Plus className="w-5 h-5" />
+              <span>Add Question</span>
+            </button>
+          </div>
+          <QuestionList />
+        </div>
+      );
+    }
+    
+
     return (
       <>
-        <div className="flex justify-between items-center mb-6">
+        {/* <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
           <button
             onClick={() => setShowQuestionModal(true)}
@@ -238,7 +260,7 @@ const TeacherDashboard = () => {
             <Plus className="w-5 h-5" />
             <span>Add Question</span>
           </button>
-        </div>
+        </div> */}
 
         {/* Dashboard Cards */}
         <div className="grid grid-cols-4 gap-6 mb-8">
@@ -331,7 +353,7 @@ const TeacherDashboard = () => {
           <SidebarMenuItem icon={ClipboardList} label="Tests" section="tests" />
           <SidebarMenuItem icon={BookOpen} label="Courses" section="courses" />
           <SidebarMenuItem icon={BarChart2} label="Analytics" section="analytics" />
-          <SidebarMenuItem icon={MessageSquare} label="Messages" section="messages" />
+          <SidebarMenuItem icon={FileQuestion} label="Questions" section="questions" />
           <SidebarMenuItem icon={Calendar} label="Schedule" section="schedule" />
           <SidebarMenuItem icon={Settings} label="Settings" section="settings" />
           <SidebarMenuItem icon={LogOut} label='Logout' onClick={handleLogout} />
