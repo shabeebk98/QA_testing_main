@@ -44,5 +44,3 @@ coverage/
 .env.production
 .env.test
 config.json
-
-
